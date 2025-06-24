@@ -187,6 +187,11 @@ textarea:focus {
   outline: none;
   box-shadow: 0 0 6px #1565c0aa;
 }
+.required {
+  color: #e74c3c;
+  margin-left: 0.2rem;
+  font-weight: 700;
+}
 
 input::placeholder,
 textarea::placeholder {
