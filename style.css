@@ -227,3 +227,22 @@ textarea::placeholder {
   font-size: 1rem;
   display: none;
 }
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filtros input[type="search"] {
+  max-width: 300px;
+}
+
+.filtros select {
+  max-width: 200px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1.5px solid #b0bec5;
+  font-size: 1rem;
+}
