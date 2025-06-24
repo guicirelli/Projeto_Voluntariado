@@ -41,3 +41,34 @@ function trocaSecao(idAtiva) {
     aplicaFiltro();
   }
 }
+// ===================== Criação dos cards =====================
+
+function criaCard(necessidade) {
+  const card = document.createElement('article');
+  card.classList.add('card');
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('aria-label', Necessidade: ${necessidade.titulo});
+
+  card.innerHTML = `
+    <h3>${necessidade.titulo}</h3>
+    <p><strong>Instituição:</strong> ${necessidade.nomeInstituicao}</p>
+    <p><strong>Tipo:</strong> ${necessidade.tipoAjuda}</p>
+    <p><strong>Descrição:</strong> ${necessidade.descricao}</p>
+    <p><strong>Endereço:</strong> ${necessidade.rua}, Nº ${necessidade.numero}, ${necessidade.bairro}, ${necessidade.cidade} - ${necessidade.estado}, CEP: ${necessidade.cep}</p>
+    <p><strong>Contato:</strong> ${necessidade.contato}</p>
+  `;
+
+  return card;
+}
+
+function renderizaLista(lista) {
+  listaNecessidades.innerHTML = '';
+  if (lista.length === 0) {
+    listaNecessidades.innerHTML = <p aria-live="polite" style="text-align:center; color:#777;">Nenhuma necessidade encontrada.</p>;
+    return;
+  }
+  lista.forEach(item => {
+    const card = criaCard(item);
+    listaNecessidades.appendChild(card);
+  });
+}
