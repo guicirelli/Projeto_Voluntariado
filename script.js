@@ -106,3 +106,8 @@ function validaFormulario(data) {
 
   return { valido: true };
 }
+// ===================== Limpar formulário =====================
+
+function limparFormulario() {
+  form.reset();
+}
