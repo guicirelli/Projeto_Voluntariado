@@ -72,3 +72,37 @@ function renderizaLista(lista) {
     listaNecessidades.appendChild(card);
   });
 }
+// ===================== Validação do formulário =====================
+
+function validaFormulario(data) {
+  const camposObrigatorios = [
+    'nomeInstituicao', 'tipoAjuda', 'titulo',
+    'descricao', 'cep', 'rua', 'bairro', 'cidade',
+    'estado', 'numero', 'contato'
+  ];
+
+  for (const campo of camposObrigatorios) {
+    if (!data[campo] || data[campo].trim() === '') {
+      return { valido: false, campo };
+    }
+  }
+
+  if (!/^\d{5}-?\d{3}$/.test(data.cep)) {
+    return { valido: false, campo: 'cep' };
+  }
+
+  if (!/^[A-Za-z]{2}$/.test(data.estado)) {
+    return { valido: false, campo: 'estado' };
+  }
+
+  if (!/^\d+$/.test(data.numero)) {
+    return { valido: false, campo: 'numero' };
+  }
+
+  const tiposValidos = ['Educação', 'Saúde', 'Meio Ambiente', 'Doação de Alimentos', 'Doação de Roupas', 'Outros'];
+  if (!tiposValidos.includes(data.tipoAjuda)) {
+    return { valido: false, campo: 'tipoAjuda' };
+  }
+
+  return { valido: true };
+}
