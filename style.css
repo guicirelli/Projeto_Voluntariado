@@ -163,3 +163,33 @@ label {
   color: #34495e;
   cursor: pointer;
 }
+input[type="text"],
+input[type="search"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1.8px solid #b0bec5;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #1565c0;
+  outline: none;
+  box-shadow: 0 0 6px #1565c0aa;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
