@@ -103,8 +103,13 @@ function validaFormulario(data) {
   if (!tiposValidos.includes(data.tipoAjuda)) {
     return { valido: false, campo: 'tipoAjuda' };
   }
-
+// Restringe o campo de número para aceitar apenas dígitos
+const campoNumero = document.getElementById('numero');
+campoNumero.addEventListener('input', function () {
+  this.value = this.value.replace(/\D/g, '');
+});
   return { valido: true };
+  
 }
 // ===================== Limpar formulário =====================
 
