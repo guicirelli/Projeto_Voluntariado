@@ -108,3 +108,26 @@
         <div class="msg-sucesso" aria-live="polite" hidden></div>
       </form>
     </section>
+    <!-- Visualização -->
+    <section id="visualizacao" class="secao" tabindex="0" aria-live="polite" aria-label="Visualização de necessidades">
+      <h1>Necessidades Cadastradas</h1>
+
+      <div class="filtros">
+        <input type="search" id="filtroBusca" placeholder="Buscar por título ou descrição..." />
+        <select id="filtroTipo">
+          <option value="">Todas</option>
+          <option value="Educação">Educação</option>
+          <option value="Saúde">Saúde</option>
+          <option value="Meio Ambiente">Meio Ambiente</option>
+          <option value="Doação de Alimentos">Doação de Alimentos</option>
+          <option value="Doação de Roupas">Doação de Roupas</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </div>
+
+      <section id="listaNecessidades" aria-live="polite">
+        <!-- Cards serão inseridos dinamicamente -->
+      </section>
+    </section>
+  </main>
+
