@@ -215,3 +215,11 @@ function inicializaEventos() {
     this.value = this.value.replace(/\D/g, '');
   });
 }
+// ===================== Inicialização da aplicação =====================
+
+function init() {
+  trocaSecao('home');
+  inicializaEventos();
+}
+
+init();
