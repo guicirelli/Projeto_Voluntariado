@@ -47,7 +47,7 @@ function criaCard(necessidade) {
   const card = document.createElement('article');
   card.classList.add('card');
   card.setAttribute('tabindex', '0');
-  card.setAttribute('aria-label', Necessidade: ${necessidade.titulo});
+  card.setAttribute('aria-label', 'Necessidade: ${necessidade.titulo}');
 
   card.innerHTML = `
     <h3>${necessidade.titulo}</h3>
@@ -64,7 +64,7 @@ function criaCard(necessidade) {
 function renderizaLista(lista) {
   listaNecessidades.innerHTML = '';
   if (lista.length === 0) {
-    listaNecessidades.innerHTML = <p aria-live="polite" style="text-align:center; color:#777;">Nenhuma necessidade encontrada.</p>;
+    listaNecessidades.innerHTML = '<p aria-live="polite" style="text-align:center; color:#777;">Nenhuma necessidade encontrada.</p>';
     return;
   }
   lista.forEach(item => {
@@ -140,7 +140,7 @@ function aplicaFiltro() {
   const tipoFiltro = filtroTipo.value;
 
   let listaFiltrada = necessidades.filter(item => {
-    const textoCompleto = ${item.titulo} ${item.descricao}.toLowerCase();
+    const textoCompleto = `${item.titulo} ${item.descricao}`.toLowerCase();
     const buscaOk = textoBusca === '' || textoCompleto.includes(textoBusca);
     const tipoOk = tipoFiltro === '' || item.tipoAjuda === tipoFiltro;
     return buscaOk && tipoOk;
@@ -154,7 +154,7 @@ function buscarEnderecoPorCEP(cep) {
   cep = cep.replace(/\D/g, '');
   if (cep.length !== 8) return;
 
-  fetch(https://viacep.com.br/ws/${cep}/json/)
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
     .then(res => res.json())
     .then(dados => {
       if (dados.erro) {
@@ -186,7 +186,7 @@ function inicializaEventos() {
     const validacao = validaFormulario(dados);
 
     if (!validacao.valido) {
-      alert(Por favor, preencha corretamente o campo: ${validacao.campo});
+      alert(`Por favor, preencha corretamente o campo: ${validacao.campo}`);
       form[validacao.campo].focus();
       return;
     }
