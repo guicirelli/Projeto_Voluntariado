@@ -111,3 +111,20 @@ function validaFormulario(data) {
 function limparFormulario() {
   form.reset();
 }
+// ===================== Coletar dados do formulário =====================
+
+function coletaDadosFormulario() {
+  return {
+    nomeInstituicao: form.nomeInstituicao.value.trim(),
+    tipoAjuda: form.tipoAjuda.value,
+    titulo: form.tituloNecessidade.value.trim(),
+    descricao: form.descricao.value.trim(),
+    cep: form.cep.value.trim(),
+    rua: form.rua.value.trim(),
+    bairro: form.bairro.value.trim(),
+    cidade: form.cidade.value.trim(),
+    estado: form.estado.value.trim().toUpperCase(),
+    numero: form.numero.value.trim(),
+    contato: form.contato.value.trim(),
+  };
+}
