@@ -279,3 +279,12 @@ textarea::placeholder {
   line-height: 1.3;
   color: #2c3e50;
 }
+footer {
+  background-color: #2874a6;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
