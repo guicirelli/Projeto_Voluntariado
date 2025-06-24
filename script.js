@@ -143,3 +143,26 @@ function aplicaFiltro() {
 
   renderizaLista(listaFiltrada);
 }
+// ===================== Integração com ViaCEP =====================
+
+function buscarEnderecoPorCEP(cep) {
+  cep = cep.replace(/\D/g, '');
+  if (cep.length !== 8) return;
+
+  fetch(https://viacep.com.br/ws/${cep}/json/)
+    .then(res => res.json())
+    .then(dados => {
+      if (dados.erro) {
+        alert('CEP não encontrado.');
+        return;
+      }
+
+      form.rua.value = dados.logradouro || '';
+      form.bairro.value = dados.bairro || '';
+      form.cidade.value = dados.localidade || '';
+      form.estado.value = dados.uf || '';
+    })
+    .catch(() => {
+      alert('Erro ao buscar endereço. Tente novamente.');
+    });
+}
