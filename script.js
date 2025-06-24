@@ -128,3 +128,18 @@ function coletaDadosFormulario() {
     contato: form.contato.value.trim(),
   };
 }
+// ===================== Aplicar filtros =====================
+
+function aplicaFiltro() {
+  const textoBusca = filtroBusca.value.toLowerCase();
+  const tipoFiltro = filtroTipo.value;
+
+  let listaFiltrada = necessidades.filter(item => {
+    const textoCompleto = ${item.titulo} ${item.descricao}.toLowerCase();
+    const buscaOk = textoBusca === '' || textoCompleto.includes(textoBusca);
+    const tipoOk = tipoFiltro === '' || item.tipoAjuda === tipoFiltro;
+    return buscaOk && tipoOk;
+  });
+
+  renderizaLista(listaFiltrada);
+}
