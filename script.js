@@ -166,3 +166,52 @@ function buscarEnderecoPorCEP(cep) {
       alert('Erro ao buscar endereço. Tente novamente.');
     });
 }
+// ===================== Eventos do sistema =====================
+
+function inicializaEventos() {
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      trocaSecao(btn.getAttribute('aria-controls'));
+    });
+  });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const dados = coletaDadosFormulario();
+    const validacao = validaFormulario(dados);
+
+    if (!validacao.valido) {
+      alert(Por favor, preencha corretamente o campo: ${validacao.campo});
+      form[validacao.campo].focus();
+      return;
+    }
+
+    necessidades.push(dados);
+
+    msgSucesso.textContent = 'Necessidade cadastrada com sucesso!';
+    msgSucesso.style.display = 'block';
+
+    limparFormulario();
+    trocaSecao('visualizacao');
+    aplicaFiltro();
+
+    setTimeout(() => {
+      msgSucesso.style.display = 'none';
+    }, 4000);
+  });
+
+  filtroBusca.addEventListener('input', aplicaFiltro);
+  filtroTipo.addEventListener('change', aplicaFiltro);
+
+  form.cep.addEventListener('blur', () => {
+    const cep = form.cep.value.trim();
+    if (/^\d{5}-?\d{3}$/.test(cep)) {
+      buscarEnderecoPorCEP(cep);
+    }
+  });
+
+  const campoNumero = document.getElementById('numero');
+  campoNumero.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '');
+  });
+}
