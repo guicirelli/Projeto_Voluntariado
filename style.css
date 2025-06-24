@@ -125,3 +125,12 @@ p.intro-text {
   font-size: 1rem;
   line-height: 1.4;
 }
+.secao {
+  display: none;
+  outline: none;
+}
+
+.secao.active {
+  display: block;
+  animation: fadeIn 0.5s ease forwards;
+}
