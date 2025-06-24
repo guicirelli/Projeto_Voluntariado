@@ -90,3 +90,38 @@ p.intro-text {
   color: #34495e;
   line-height: 1.5;
 }
+.intro-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.intro-card {
+  flex: 1 1 280px;
+  background-color: #e3f2fd;
+  border-radius: 10px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 4px 10px rgba(40,116,166,0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.intro-card:hover,
+.intro-card:focus-within {
+  box-shadow: 0 6px 18px rgba(40,116,166,0.4);
+  outline: none;
+}
+
+.intro-card h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #2874a6;
+}
+
+.intro-card p {
+  color: #2c3e50;
+  font-size: 1rem;
+  line-height: 1.4;
+}
